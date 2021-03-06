@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PATIENT PAGE</title>
+    <link rel="stylesheet" type="text/css" href="D:/Mini-main/Mini-main/patient_page.css">
+    
+</head>
+<body>
+
+
+<div class="tab">
+  <button class="tablinks" onclick="openCity(event, 'appointment')"id="defaultOpen">Appointment</button>
+  <button class="tablinks" onclick="openCity(event, 'view_appointment')">View Appointment Details</button>
+  <button class="tablinks" onclick="openCity(event, 'report')">View Report</button>  
+  <button class="tablinks" onclick="window.location.href='home.html';">Log Out</button> 
+</div>
+
+<div id="appointment" class="tabcontent">
+  <h4>Appointment</h4>
+  <form class="form" method="post" action="/addname" role="form" enctype="multipart/form-data">
+    <div class="block">
+        Patient Name:<input type="text" name="patient_name" value="">
+        <h5>Test Details</h5>
+        
+        <input type="checkbox" name="test_type" value="Haemoglobin">
+        <label>Haemoglobin-500</label>
+        <input type="checkbox" name="test_type" value="Sonography">
+        <label>Sonography-1000</label>
+
+
+        <h5>Select Date:</h5>
+        <h5><input type="date" id="date" name="date"></h5>
+
+        <h5>Select a time:</h5>
+        <h5><input type="time" id="appt" name="time"></h5>
+        <h5>Office hours are from 8am-4pm with break from 12pm-1pm </h5>
+        
+    </div>
+    <div class="btn_submit">
+            <input type="submit" value="Submit">
+    </div>
+    
+  </form>
+</div>
+
+
+
+<div id="view_appointment" class="tabcontent">
+  <h4>View Appointment Details</h4>
+  <form class="form">
+    <label>Patient Name</label>
+    <input type ="text" id="id">
+  </form>
+</div>
+
+<div id="report" class="tabcontent">
+    <h4>Report</h4>
+    <form class="form">
+        <div class="block">
+            <label>Test ID</label>
+            <input type="text" /><br><br>
+        </div>
+        <div class="block">
+            <label>Type</label>
+            <input type="text" />
+        </div>
+    </form>
+</div>
+<script>
+function openCity(evt, cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }view_appointment
+  tablinks = document.getElementsByClassName("tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  evt.currentTarget.className += " active";
+  
+}
+document.getElementById("defaultOpen").click();
+</script>
+   
+</body>
+</html> 
